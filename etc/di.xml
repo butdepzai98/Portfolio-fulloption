@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!-- Goi Grid -->
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="portfolio_index_listing_data_source" xsi:type="string">AHT\Portfolio\Model\ResourceModel\Portfolio\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="AHT\Portfolio\Model\ResourceModel\Portfolio\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">portfolio</argument>
+            <argument name="eventPrefix" xsi:type="string">portfolio_index_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">index_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">AHT\Portfolio\Model\ResourceModel\Portfolio</argument>
+        </arguments>
+    </type>
+	<!-- /Goi Grid -->
+
+    <!-- Xu ly anh -->
+    <virtualType name="AHT\Portfolio\IndexImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">aht/tmp/upload</argument>
+            <argument name="basePath" xsi:type="string">aht/image/upload</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="gif" xsi:type="string">image/gif</item>
+                <item name="png" xsi:type="string">image/png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="AHT\Portfolio\Controller\Adminhtml\Index\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">AHT\Portfolio\IndexImageUpload</argument>
+        </arguments>
+    </type>
+    <!-- /Xu ly anh -->
+</config>

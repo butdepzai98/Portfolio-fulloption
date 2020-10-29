@@ -1,0 +1,56 @@
+<div class="bestseller">
+    <div class="block widget block-products-list grid">
+        <div class="block-title">
+            <strong>
+                <a href="fr_portfolio">
+                <?php 
+                    $numSlide = $block->getNumSlide();
+                    echo $block->getTitle() 
+                ?>
+                </a>
+            </strong>
+        </div>
+        <div class="block-content">
+            <!-- new_products_content_widget_grid-->
+            <div class="products-grid grid">
+                <ol class="product-items widget-product-grid">
+                    <?php 
+                        $posts = $block->getCollection();
+                        foreach ($posts as $item) {
+                    ?>
+                    <li class="product-item">
+                        <div class="product-item-info">
+                            <?php echo "<a href='fr_portfolio/index/show/id/".$item->getId()."' class='product photo product-item-photo' tabindex='-1'>" ?>
+                                <span class="product-image-container" style="width:240px;">
+                                    <span class="product-image-wrapper" style="padding-bottom: 125%;">
+                                        <?php 
+                                            echo "<img class='product-image-photo' src='".$item->getImageUrl()."' alt=''>";
+                                        ?>
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <?php echo "<a class='product-item-link' href='fr_portfolio/index/show/id/".$item->getId()."'>" ?>
+                                        <?php echo $item->getTitle() ?>                          
+                                    </a>
+                                </strong>
+                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="1802" data-price-box="product-id-1802">
+                                <span class="normal-price">
+                                    <span class="price-container price-final_price tax weee">
+                                        <div class="price-label">
+                                            <?php echo $item->getDescription() ?>
+                                            <br>
+                                            <?php echo $item->getCreatedAt() ?>
+                                        </div>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <?php } ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

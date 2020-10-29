@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="AHT\Portfolio\Block\Widget\BannerSlider" id="portfolio_widget"
+     is_email_compatible="false" placeholder_image="Magento_Widget::placeholder.gif">
+        <label>My New Widget</label>
+        <description>This is a test widget!!!</description>
+
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label>Label of Widget</label>
+            </parameter>
+            <parameter source_model="AHT\Portfolio\Model\Portfolio\Config\Source\Select" name="numSlide" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Number Slide will show</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
